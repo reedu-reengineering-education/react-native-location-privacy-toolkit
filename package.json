@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "react-native-location-privacy-toolkit",
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
