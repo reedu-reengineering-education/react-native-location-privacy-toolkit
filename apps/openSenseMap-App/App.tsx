@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { useLocation } from "location-privacy-toolkit";
-import Map from "./components/Map";
+import Map from "@/Map";
 import React from "react";
-import OmniBox from "./components/OmniBox";
+import OmniBox from "@/OmniBox";
 
 export default function App() {
   const { location, geocodedLocation } = useLocation();

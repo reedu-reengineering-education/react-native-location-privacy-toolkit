@@ -315,6 +315,8 @@ PODS:
   - rnmapbox-maps/DynamicLibrary (10.0.0-beta.46):
     - React
     - React-Core
+  - RNSVG (13.4.0):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -361,6 +363,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../../../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../../../node_modules/react-native/ReactCommon`)
   - "rnmapbox-maps (from `../../../node_modules/@rnmapbox/maps`)"
+  - RNSVG (from `../../../node_modules/react-native-svg`)
   - Yoga (from `../../../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -452,6 +455,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon"
   rnmapbox-maps:
     :path: "../../../node_modules/@rnmapbox/maps"
+  RNSVG:
+    :path: "../../../node_modules/react-native-svg"
   Yoga:
     :path: "../../../node_modules/react-native/ReactCommon/yoga"
 
@@ -499,6 +504,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 0af71c94f968fa10015bf0119951bccd2e4d8865
   ReactCommon: fe7580b9d10f00249facf25659e0ec051320cc8a
   rnmapbox-maps: 48f144eabc7737663a35dadfbec2d4c28374c374
+  RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
   Yoga: 75bf4b0131cfb46a659cd0c13309b79a6fcff66d
 
 PODFILE CHECKSUM: 6a8b35403264a9013568f00a0091ab8db9a86d9c
