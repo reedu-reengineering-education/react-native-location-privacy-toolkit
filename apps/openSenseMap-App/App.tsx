@@ -1,33 +1,27 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { useLocation } from "location-privacy-toolkit";
-import Map from "@/components/Map";
-import React from "react";
-import OmniBox from "@/components/OmniBox";
+// In App.js in a new project
 
-export default function App() {
-  const { location, geocodedLocation } = useLocation();
+import React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "@/pages/Home";
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" backgroundColor="red" />
-      <Map />
-      <SafeAreaView
-        style={{
-          position: "absolute",
-          padding: 20,
-          width: "100%",
-        }}
-      >
-        <OmniBox />
-        {/* <Text>{JSON.stringify(location?.coords)}</Text>
-        <Text>{JSON.stringify(geocodedLocation)}</Text> */}
-      </SafeAreaView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+export default App;
