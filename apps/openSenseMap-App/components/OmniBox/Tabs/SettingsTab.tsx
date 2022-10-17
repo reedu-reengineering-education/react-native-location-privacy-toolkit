@@ -1,4 +1,4 @@
-import Checkbox from "@/elements/Checkbox";
+import Checkbox from "@/components/Elements/Checkbox";
 import React from "react";
 import { View, Text } from "react-native";
 
