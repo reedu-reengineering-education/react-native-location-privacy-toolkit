@@ -7,8 +7,9 @@
     "paths": {
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
-      "@/api/*": ["./api/*"],
-      "@/pages/*": ["./pages/*"]
+      "@/features/*": ["./features/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/stores/*": ["./stores/*"]
     }
   }
 }
