@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import {
   View,
@@ -29,10 +30,13 @@ const OmniBox = () => {
   }, [searchText]);
 
   return (
-    <View className="m-5">
+    <View className="mx-4 my-2">
       <Pressable
         onPress={() => setExpanded(true)}
-        className=" px-6 py-5 rounded-3xl shadow-md border-zinc-200 border-[0.5px] bg-white overflow-hidden"
+        className={clsx(
+          "px-5 py-4 shadow-md border-zinc-200 border-[0.5px] bg-white overflow-hidden",
+          expanded ? "rounded-3xl" : "rounded-full"
+        )}
       >
         {!expanded && (
           <OmniHeaderLayout>

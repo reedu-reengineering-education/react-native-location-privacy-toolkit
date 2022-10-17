@@ -1,3 +1,5 @@
+import { fetcher } from "@/lib/axios";
+import { minimalSenseBoxes, senseBox } from "@/stores/boxStore";
 import useSWR from "swr";
 
 export const useBoxes = (minimal = false) => {
@@ -7,5 +9,12 @@ export const useBoxes = (minimal = false) => {
     url.searchParams.append("minimal", "true");
   }
 
-  return useSWR<GeoJSON.FeatureCollection>(url.toString());
+  return useSWR<minimalSenseBoxes>(url.toString());
+};
+
+export const useBox = (id: string) => {
+  const url = new URL(`boxes/${id}`);
+  url.searchParams.append("format", "geojson");
+
+  return useSWR<senseBox>(url.toString());
 };
