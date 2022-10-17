@@ -7,6 +7,7 @@ import OmniBox from "@/components/OmniBox";
 import { getAll } from "@/api/boxes/getAll";
 import { useEffect } from "react";
 import { useState } from "react";
+import { CircleLayer, ShapeSource } from "@rnmapbox/maps";
 
 const Home = () => {
   const { location, geocodedLocation } = useLocation();
@@ -15,14 +16,31 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await getAll();
+      const data = await getAll(true);
       setBoxes(data);
     })();
   }, []);
 
   return (
     <>
-      <Map />
+      <Map>
+        {boxes && (
+          <ShapeSource
+            shape={boxes}
+            onPress={(e) => console.log(e.features[0])}
+          >
+            <CircleLayer
+              id="boxes"
+              style={{
+                circleColor: "#4eaf47",
+                circleRadius: 7,
+                circleStrokeWidth: 2,
+                circleStrokeColor: "#fff",
+              }}
+            ></CircleLayer>
+          </ShapeSource>
+        )}
+      </Map>
       <SafeAreaView className="w-full absolute">
         <OmniBox />
       </SafeAreaView>

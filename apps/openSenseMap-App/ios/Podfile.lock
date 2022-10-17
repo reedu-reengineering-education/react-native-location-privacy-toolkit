@@ -11,11 +11,11 @@ PODS:
     - ExpoModulesCore
   - EXLocation (14.3.0):
     - ExpoModulesCore
-  - Expo (46.0.15):
+  - Expo (46.0.16):
     - ExpoModulesCore
   - ExpoKeepAwake (10.2.0):
     - ExpoModulesCore
-  - ExpoModulesCore (0.11.7):
+  - ExpoModulesCore (0.11.8):
     - React-Core
     - ReactCommon/turbomodule/core
   - EXSplashScreen (0.16.2):
@@ -488,9 +488,9 @@ SPEC CHECKSUMS:
   EXFileSystem: 927e0a8885aa9c49e50fc38eaba2c2389f2f1019
   EXFont: 06df627203afcb8a3b3152ec06eb2f11f46f0cff
   EXLocation: b8cba3cb354bee6abb181c1dd245abe5aef22955
-  Expo: 7e821e708a35d2720ef6baa658e224dd91c4821e
+  Expo: 7ac824960a6059d6c68e73f432c8e6bf6d92a0ef
   ExpoKeepAwake: 0e8f18142e71bbf2c7f6aa66ebed249ba1420320
-  ExpoModulesCore: 2d60ec04c49641afb55fee3faac86fb108c68fe0
+  ExpoModulesCore: 39ec590ce622289c060183aba57f77b1e73b4e11
   EXSplashScreen: 799bece80089219b2c989c1082d70f3b00995cda
   FBLazyVector: 739d2f9719faecb463c7aa191591af31c8c94182
   FBReactNativeSpec: 76ec3538998a1d52409cf538efd54fee62a6f8a4
