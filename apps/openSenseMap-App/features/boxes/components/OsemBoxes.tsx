@@ -1,10 +1,12 @@
 import { boxAtom, senseBox } from "@/stores/boxStore";
 import { errorAtom } from "@/stores/errorStore";
 import { loadingAtom } from "@/stores/loadingStore";
-import { CircleLayer, ShapeSource } from "@rnmapbox/maps";
+import { CircleLayer, MarkerView, ShapeSource } from "@rnmapbox/maps";
+import flip from "@turf/flip";
 import { useAtom } from "jotai";
 import React from "react";
 import { useEffect } from "react";
+import { Text } from "react-native";
 import { useBoxes } from "../api";
 
 const OsemBoxes = () => {
@@ -15,12 +17,7 @@ const OsemBoxes = () => {
   const [, setSelectedBox] = useAtom(boxAtom);
 
   useEffect(() => {
-    if (error) {
-      setError(error.message);
-    } else {
-      setError("");
-    }
-
+    setError(error?.message || "");
     setLoading(!boxes && !error);
   }, [boxes, error]);
 
@@ -30,8 +27,14 @@ const OsemBoxes = () => {
 
   return (
     <ShapeSource
-      shape={boxes}
+      // shape={boxes}
+      url="https://api.opensensemap.org/boxes?minimal=true&format=geojson"
       onPress={({ features, coordinates, point }) => {
+        console.log(
+          (features[0] as senseBox).properties.name,
+          coordinates,
+          point
+        );
         setSelectedBox(features[0] as senseBox);
       }}
       hitbox={{
@@ -40,19 +43,18 @@ const OsemBoxes = () => {
       }}
     >
       <CircleLayer
-        className="z-10"
         id="boxes"
         style={{
           circleColor: "#4eaf47",
-          circleRadius: ["interpolate", ["linear"], ["zoom"], 10, 15, 5, 4],
+          circleRadius: ["interpolate", ["linear"], ["zoom"], 5, 4, 10, 15],
           circleStrokeWidth: [
             "interpolate",
             ["linear"],
             ["zoom"],
-            8,
-            2,
             5,
             0.2,
+            8,
+            2,
           ],
           circleStrokeColor: "#fff",
           circleStrokeOpacity: [

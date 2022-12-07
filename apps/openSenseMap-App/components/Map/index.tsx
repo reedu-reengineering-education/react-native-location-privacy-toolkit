@@ -10,9 +10,12 @@ const Map = (props: Props) => {
   return (
     <MapView
       style={{
-        width: "100%",
-        height: "100%",
+        flex: 1,
       }}
+      // style={{
+      //   width: "100%",
+      //   height: "100%",
+      // }}
       styleURL={`https://api.maptiler.com/maps/topo/style.json?key=${maptilerKey}`}
       {...props}
     />

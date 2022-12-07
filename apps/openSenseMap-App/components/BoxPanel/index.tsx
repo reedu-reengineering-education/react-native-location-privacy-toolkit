@@ -36,7 +36,7 @@ const BoxPanel = () => {
             <CubeIcon color={colors.white} />
           </View>
           <Text className="text-white font-semibold mx-auto p-4">
-            {box?.properties?.name}
+            {box?.properties?.name || selectedBox?.properties.name}
           </Text>
           <TouchableOpacity
             onPress={() => setSelectedBox(undefined)}
