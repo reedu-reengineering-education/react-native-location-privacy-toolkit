@@ -1,8 +1,4 @@
 module.exports = {
-  extra: {
-    maptilerKey: "s6ZwTwU4u8uKGSjMhzHX",
-    osemApi: "https://api.opensensemap.org",
-  },
   android: {
     package: "de.reedu.openSenseMapApp",
   },
