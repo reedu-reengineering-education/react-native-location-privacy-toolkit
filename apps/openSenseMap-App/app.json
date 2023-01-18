@@ -6,14 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "plugins": [
-      [
-        "@rnmapbox/maps",
-        {
-          "RNMapboxMapsImpl": "maplibre"
-        }
-      ]
-    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,11 +17,15 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "@maplibre/maplibre-react-native"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "de.reedu.opensensemap-app"
     },
     "android": {
+      "package": "de.reedu.openSenseMapApp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

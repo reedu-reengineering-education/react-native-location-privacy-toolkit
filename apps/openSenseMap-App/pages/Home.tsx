@@ -1,5 +1,4 @@
 import { SafeAreaView, View, Text } from "react-native";
-import { useLocation } from "location-privacy-toolkit";
 import React from "react";
 import Map from "@/components/Map";
 import OmniBox from "@/components/OmniBox";

@@ -1,13 +1,13 @@
 import { boxAtom, senseBox } from "@/stores/boxStore";
 import { errorAtom } from "@/stores/errorStore";
 import { loadingAtom } from "@/stores/loadingStore";
-import { CircleLayer, MarkerView, ShapeSource } from "@rnmapbox/maps";
 import flip from "@turf/flip";
 import { useAtom } from "jotai";
 import React from "react";
 import { useEffect } from "react";
 import { Text } from "react-native";
 import { useBoxes } from "../api";
+import MapLibreGL from "@maplibre/maplibre-react-native";
 
 const OsemBoxes = () => {
   const { data: boxes, error } = useBoxes(true);
@@ -26,23 +26,14 @@ const OsemBoxes = () => {
   const lastWeek = new Date(new Date().setDate(new Date().getDate() - 7));
 
   return (
-    <ShapeSource
-      // shape={boxes}
-      url="https://api.opensensemap.org/boxes?minimal=true&format=geojson"
+    <MapLibreGL.ShapeSource
+      id="boxes"
+      shape={boxes}
       onPress={({ features, coordinates, point }) => {
-        console.log(
-          (features[0] as senseBox).properties.name,
-          coordinates,
-          point
-        );
         setSelectedBox(features[0] as senseBox);
       }}
-      hitbox={{
-        width: 100,
-        height: 100,
-      }}
     >
-      <CircleLayer
+      <MapLibreGL.CircleLayer
         id="boxes"
         style={{
           circleColor: "#4eaf47",
@@ -74,8 +65,8 @@ const OsemBoxes = () => {
             0.3,
           ],
         }}
-      ></CircleLayer>
-    </ShapeSource>
+      ></MapLibreGL.CircleLayer>
+    </MapLibreGL.ShapeSource>
   );
 };
 

@@ -1,22 +1,21 @@
-import { MapView, MapViewProps } from "@rnmapbox/maps";
 import React from "react";
 import Constants from "expo-constants";
+import MapLibreGL, { MapViewProps } from "@maplibre/maplibre-react-native";
 
-type Props = MapViewProps;
+// Will be null for most users (only Mapbox authenticates this way).
+// Required on Android. See Android installation notes.
+MapLibreGL.setAccessToken(null);
 
-const Map = (props: Props) => {
+const Map = (props: MapViewProps) => {
   const maptilerKey = Constants.expoConfig?.extra?.maptilerKey;
 
   return (
-    <MapView
+    <MapLibreGL.MapView
       style={{
         flex: 1,
       }}
-      // style={{
-      //   width: "100%",
-      //   height: "100%",
-      // }}
-      styleURL={`https://api.maptiler.com/maps/topo/style.json?key=${maptilerKey}`}
+      styleURL="https://demotiles.maplibre.org/style.json"
+      // styleURL={`https://api.maptiler.com/maps/topo/style.json?key=${maptilerKey}`}
       {...props}
     />
   );

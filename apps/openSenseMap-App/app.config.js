@@ -1,14 +1,15 @@
 module.exports = {
   extra: {
-    maptilerKey: process.env.MAPTILER_KEY,
+    maptilerKey: "s6ZwTwU4u8uKGSjMhzHX",
     osemApi: "https://api.opensensemap.org",
   },
-  plugins: [
-    [
-      "@rnmapbox/maps",
-      {
-        RNMapboxMapsImpl: "maplibre",
-      },
-    ],
-  ],
+  android: {
+    package: "de.reedu.openSenseMapApp",
+  },
+  ios: {
+    bundleIdentifier: "de.reedu.openSenseMapApp",
+  },
+  expo: {
+    plugins: ["@maplibre/maplibre-react-native"],
+  },
 };
