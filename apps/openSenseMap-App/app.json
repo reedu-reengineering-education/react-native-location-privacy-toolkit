@@ -17,10 +17,15 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "@maplibre/maplibre-react-native"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "de.reedu.opensensemap-app"
     },
     "android": {
+      "package": "de.reedu.openSenseMapApp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

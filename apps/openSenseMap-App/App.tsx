@@ -1,23 +1,35 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { useLocation } from "location-privacy-toolkit";
+// In App.js in a new project
 
-export default function App() {
-  const { location, geocodedLocation } = useLocation();
+import React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "@/pages/Home";
+import { SWRConfig } from "swr";
+import { fetcher } from "@/lib/axios";
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>{JSON.stringify(location?.coords)}</Text>
-      <Text>{JSON.stringify(geocodedLocation)}</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SWRConfig
+      value={{
+        fetcher,
+      }}
+    >
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SWRConfig>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
