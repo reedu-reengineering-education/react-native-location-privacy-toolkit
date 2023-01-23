@@ -89,10 +89,10 @@ const OmniBox = () => {
         {!expanded && (
           <Pressable
             className={clsx(
-              "p-4 shadow-md border-zinc-200 border-[0.5px] bg-white overflow-hidden rounded-full"
+              "aspect-square h-full flex items-center justify-center shadow-md border-zinc-200 border-[0.5px] bg-white overflow-hidden rounded-full"
             )}
           >
-            <CogIcon />
+            <CogIcon color={colors.zinc[800]} size={20} />
           </Pressable>
         )}
       </View>

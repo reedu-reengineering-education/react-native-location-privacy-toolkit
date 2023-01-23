@@ -8,6 +8,11 @@
     "ios": "expo run:ios",
     "web": "expo start --web"
   },
+  "workspaces": {
+    "nohoist": [
+      "**"
+    ]
+  },
   "dependencies": {
     "@maplibre/maplibre-react-native": "^9.0.0",
     "@react-native-community/cli-platform-ios": "^10.1.0",

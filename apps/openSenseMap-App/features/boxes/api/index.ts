@@ -3,7 +3,11 @@ import { minimalSenseBoxes, senseBox } from "@/stores/boxStore";
 import { AxiosError } from "axios";
 import useSWR from "swr";
 
-export const useBoxes = (minimal = false) => {
+interface IUseBoxesProps {
+  minimal: boolean;
+}
+
+export const useBoxes = ({ minimal }: IUseBoxesProps) => {
   const url = new URL("boxes");
   url.searchParams.append("format", "geojson");
   if (minimal) {

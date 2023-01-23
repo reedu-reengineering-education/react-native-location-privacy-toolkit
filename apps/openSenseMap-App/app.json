@@ -22,7 +22,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "de.reedu.opensensemap-app"
+      "bundleIdentifier": "de.reedu.openSenseMapApp"
     },
     "android": {
       "package": "de.reedu.openSenseMapApp",

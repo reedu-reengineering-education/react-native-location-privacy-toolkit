@@ -10,7 +10,9 @@ import { useBoxes } from "../api";
 import MapLibreGL from "@maplibre/maplibre-react-native";
 
 const OsemBoxes = () => {
-  const { data: boxes, error } = useBoxes(true);
+  const { data: boxes, error } = useBoxes({
+    minimal: true,
+  });
 
   const [, setError] = useAtom(errorAtom);
   const [, setLoading] = useAtom(loadingAtom);
@@ -35,36 +37,36 @@ const OsemBoxes = () => {
     >
       <MapLibreGL.CircleLayer
         id="boxes"
-        style={{
-          circleColor: "#4eaf47",
-          circleRadius: ["interpolate", ["linear"], ["zoom"], 5, 4, 10, 15],
-          circleStrokeWidth: [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            5,
-            0.2,
-            8,
-            2,
-          ],
-          circleStrokeColor: "#fff",
-          circleStrokeOpacity: [
-            "case",
-            ["<", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
-            0.3,
-            [">=", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
-            1,
-            0.3,
-          ],
-          circleOpacity: [
-            "case",
-            ["<", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
-            0.3,
-            [">=", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
-            1,
-            0.3,
-          ],
-        }}
+        // style={{
+        //   circleColor: "#4eaf47",
+        //   circleRadius: ["interpolate", ["linear"], ["zoom"], 5, 4, 10, 15],
+        //   circleStrokeWidth: [
+        //     "interpolate",
+        //     ["linear"],
+        //     ["zoom"],
+        //     5,
+        //     0.2,
+        //     8,
+        //     2,
+        //   ],
+        //   circleStrokeColor: "#fff",
+        //   circleStrokeOpacity: [
+        //     "case",
+        //     ["<", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
+        //     0.3,
+        //     [">=", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
+        //     1,
+        //     0.3,
+        //   ],
+        //   circleOpacity: [
+        //     "case",
+        //     ["<", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
+        //     0.3,
+        //     [">=", ["get", "lastMeasurementAt"], lastWeek.toISOString()],
+        //     1,
+        //     0.3,
+        //   ],
+        // }}
       ></MapLibreGL.CircleLayer>
     </MapLibreGL.ShapeSource>
   );
